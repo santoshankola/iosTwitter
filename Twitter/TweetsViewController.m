@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray*  tweets;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -26,21 +27,12 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+       self.refreshControl = [[UIRefreshControl  alloc]init];
+    [self.refreshControl  addTarget: self action:@selector(fetchData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex: 0];
     
-    
-      [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-          
-     //NSLog(@"tweets: %@", responseObject);
-     self.tweets = [Tweet tweetsWithArray:responseObject];
-            [self.tableView reloadData];
-     for(Tweet * tweet in self.tweets) {
-     NSLog(@"Tweet: %@, created %@", tweet.text, tweet.createdAt);
-     }
-     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-     NSLog(@"Error getting tweets");
-     }];
-  
-    
+    [self fetchData];
+
     // Do any additional setup after loading the view.
 }
 
@@ -76,6 +68,23 @@
     
     
     return cell;
+}
+
+-(void) fetchData {
+    
+    [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //NSLog(@"tweets: %@", responseObject);
+        self.tweets = [Tweet tweetsWithArray:responseObject];
+        [self.tableView reloadData];
+        for(Tweet * tweet in self.tweets) {
+            NSLog(@"Tweet: %@, created %@", tweet.text, tweet.createdAt);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Error getting tweets");
+    }];
+    
+               [self.refreshControl endRefreshing];
 }
 
 @end

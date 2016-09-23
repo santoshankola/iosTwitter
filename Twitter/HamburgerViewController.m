@@ -33,12 +33,6 @@
     
     [self.menuView addSubview:self.menuViewController.view];
     
-       self.tweetsViewController = [storyboard instantiateViewControllerWithIdentifier:@"TweetsViewController"];
-    [self addChildViewController:self.tweetsViewController];
-    self.tweetsViewController.view.frame = self.contentView.bounds;
-    [self.contentView addSubview:self.tweetsViewController.view];
-    
-    [self.tweetsViewController didMoveToParentViewController:self];
     
     
     // Do any additional setup after loading the view.
