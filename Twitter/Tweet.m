@@ -2,7 +2,7 @@
 //  Tweet.m
 //  Twitter
 //
-//  Created by Mithun Kumble on 9/20/16.
+//  Created by Santosh Ankola on 9/20/16.
 //  Copyright © 2016 myapp. All rights reserved.
 //
 

@@ -2,13 +2,13 @@
 //  TwitterClient.m
 //  Twitter
 //
-//  Created by Mithun Kumble on 9/20/16.
+//  Created by Santosh Ankola on 9/20/16.
 //  Copyright © 2016 myapp. All rights reserved.
 //
 
 #import "TwitterClient.h"
-NSString *const kTwitterConsumerKey = @"bxzEUR6RRiOHrx3L6XqAX7p0r";
-NSString *const kTwitterConsumerSecret = @"tiPbMHbZCK7jNhw1OeIZ2MMMxS62ZBVdUnkfmeZHRiq6460Uln";
+NSString *const kTwitterConsumerKey = @"xEgNTfyHFEWctl1cwbhSy4us4";
+NSString *const kTwitterConsumerSecret = @"nRlsPHHvRj8hQT2Oh2nbJKozyY7DqqH6BW7B2mlDaTUkVaj2mO";
 NSString *const kTwitterBaseUrl = @"https://api.twitter.com";
 
 @interface  TwitterClient()
