@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "HamburgerViewController.h"
 
 @interface LoginViewController ()
 
@@ -17,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.5058 green:0.7725 blue:0.9176 alpha:1.0];
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -40,6 +43,9 @@
         if(user!= nil) {
             //Modally present tweets view
             NSLog(@"Welcome to %@", user.name);
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            HamburgerViewController *hamburgerViewController = (HamburgerViewController *)[storyboard instantiateViewControllerWithIdentifier:@"HamburgerViewController"];
+            [self.navigationController pushViewController:hamburgerViewController animated:YES];
         }
         else
         {

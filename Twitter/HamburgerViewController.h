@@ -1,4 +1,4 @@
-//
+//B
 //  HamburgerViewController.h
 //  Twitter
 //
@@ -12,4 +12,6 @@
 
 - (void) setContentViewController:(UIViewController *) contentViewController;
 
+- (void) openMenu;
+- (void) closeMenu;
 @end

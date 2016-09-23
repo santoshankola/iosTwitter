@@ -7,12 +7,12 @@
 //
 
 #import "MenuViewController.h"
-
+#import "MenuCell.h"
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic)   UIViewController *greenViewController;
+@property (strong, nonatomic)   UIViewController *tweetsViewController;
 @property (strong, nonatomic)   UIViewController *blueViewController;
 @property (strong, nonatomic)   UIViewController *redViewController;
 
@@ -26,7 +26,7 @@
     self.tableView.delegate = self;
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"  bundle:nil];
-    self.greenViewController = [storyboard instantiateViewControllerWithIdentifier:@"GreenViewController"];
+    self.tweetsViewController = [storyboard instantiateViewControllerWithIdentifier:@"TweetsViewController"];
     self.blueViewController = [storyboard instantiateViewControllerWithIdentifier:@"BlueViewController"];
     self.redViewController = [storyboard instantiateViewControllerWithIdentifier:@"RedViewController"];
     
@@ -50,23 +50,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableView * cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
+    MenuCell * cell = [tableView dequeueReusableCellWithIdentifier:@"MenuCell"];
     
     if(indexPath.row == 0) {
-        cell.backgroundColor = [UIColor greenColor];
+        cell.menuItemLabel.text = @"Tweets";
         
     }
     else if(indexPath.row == 1) {
-        cell.backgroundColor = [UIColor blueColor];
-        
-    }
-    else if(indexPath.row == 2) {
-        cell.backgroundColor = [UIColor redColor];
+        cell.menuItemLabel.text = @"Compose";
         
     }
     return cell;
@@ -76,7 +72,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if(indexPath.row == 0) {
-        [self.hamburgerViewController setContentViewController:self.greenViewController];
+        [self.hamburgerViewController setContentViewController:self.tweetsViewController];
         
     }
     else if(indexPath.row == 1) {

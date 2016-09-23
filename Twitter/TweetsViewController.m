@@ -7,8 +7,15 @@
 //
 
 #import "TweetsViewController.h"
+#import "TwitterClient.h"
+#import "Tweet.h"
+#import "TweetCell.h"
 
-@interface TweetsViewController ()
+@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSArray*  tweets;
 
 @end
 
@@ -16,6 +23,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
+    
+    
+      [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+          
+     //NSLog(@"tweets: %@", responseObject);
+     self.tweets = [Tweet tweetsWithArray:responseObject];
+            [self.tableView reloadData];
+     for(Tweet * tweet in self.tweets) {
+     NSLog(@"Tweet: %@, created %@", tweet.text, tweet.createdAt);
+     }
+     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+     NSLog(@"Error getting tweets");
+     }];
+  
+    
     // Do any additional setup after loading the view.
 }
 
@@ -23,6 +48,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 /*
 #pragma mark - Navigation
@@ -33,5 +61,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.tweets.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TweetCell * cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    
+    Tweet *tw = self.tweets[indexPath.row];
+    cell.tweetMessage.text = tw.text;
+    
+    
+    return cell;
+}
 
 @end

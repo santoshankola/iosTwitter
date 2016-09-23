@@ -20,6 +20,8 @@
 		1C5112561D94B07A0036B79F /* HamburgerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5112551D94B07A0036B79F /* HamburgerViewController.m */; };
 		1C5112591D94B2AE0036B79F /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5112581D94B2AE0036B79F /* MenuViewController.m */; };
 		1C51125C1D94B2B70036B79F /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C51125B1D94B2B70036B79F /* TweetsViewController.m */; };
+		1C526A851D94F4A700EF106D /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C526A841D94F4A600EF106D /* MenuCell.m */; };
+		1C526A881D94FB0000EF106D /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C526A871D94FB0000EF106D /* TweetCell.m */; };
 		48A45240849DD8AB1A942F99 /* libPods-Twitter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A67A42C93110033083D5D3E /* libPods-Twitter.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,10 @@
 		1C5112581D94B2AE0036B79F /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		1C51125A1D94B2B70036B79F /* TweetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetsViewController.h; sourceTree = "<group>"; };
 		1C51125B1D94B2B70036B79F /* TweetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetsViewController.m; sourceTree = "<group>"; };
+		1C526A831D94F4A600EF106D /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		1C526A841D94F4A600EF106D /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		1C526A861D94FB0000EF106D /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		1C526A871D94FB0000EF106D /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		728D3FF868411B98544731D7 /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +100,10 @@
 				1C51121D1D91BBDF0036B79F /* LoginViewController.h */,
 				1C51121E1D91BBDF0036B79F /* LoginViewController.m */,
 				1C51124F1D9490120036B79F /* Main.storyboard */,
+				1C526A861D94FB0000EF106D /* TweetCell.h */,
+				1C526A871D94FB0000EF106D /* TweetCell.m */,
+				1C526A831D94F4A600EF106D /* MenuCell.h */,
+				1C526A841D94F4A600EF106D /* MenuCell.m */,
 				1C5112571D94B2AE0036B79F /* MenuViewController.h */,
 				1C5112581D94B2AE0036B79F /* MenuViewController.m */,
 				1C51125A1D94B2B70036B79F /* TweetsViewController.h */,
@@ -271,7 +281,9 @@
 				1C5112561D94B07A0036B79F /* HamburgerViewController.m in Sources */,
 				1C5112591D94B2AE0036B79F /* MenuViewController.m in Sources */,
 				1C5112531D94A2B30036B79F /* TabBarController.m in Sources */,
+				1C526A881D94FB0000EF106D /* TweetCell.m in Sources */,
 				1C5112241D91BD080036B79F /* TwitterClient.m in Sources */,
+				1C526A851D94F4A700EF106D /* MenuCell.m in Sources */,
 				1C2FE44B1D91B81A005F4460 /* AppDelegate.m in Sources */,
 				1C51122B1D91E1D00036B79F /* User.m in Sources */,
 				1C51125C1D94B2B70036B79F /* TweetsViewController.m in Sources */,
